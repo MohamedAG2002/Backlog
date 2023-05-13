@@ -4,15 +4,17 @@ Backlog is a CLI program that lets you add a game you want to play, a show, a mo
 # Installation
 Currently, the only way to use the program is to clone it directly from github. Obviously, you must have git installed to run the command below
 
-/* TODO: Add code snippet */
--git clone "path/to/github.com/project"
+```
+-git clone https://github.com/MohamedAG2002/Backlog
+```
 
 Now that you have the project in a file somewhere, you have to install the Rust tools to your system. The most important one is "Cargo" because that's what you will use next.
 
 Once you finished installing Cargo, you have to open the terminal and go into the project wherever you put it, and run this command:
 
-/* TODO: Add code snippet */
--cargo install --path .
+```
+cargo install --path .
+```
 
 Make sure to include the "." and write everything as is. And finally, once you did that, you can call the command "backlog" from anywhere in your system.
 
