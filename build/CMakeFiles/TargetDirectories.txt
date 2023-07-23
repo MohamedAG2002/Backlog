@@ -1,0 +1,7 @@
+/home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles/backlog.dir
+/home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles/edit_cache.dir
+/home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles/rebuild_cache.dir
+/home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles/list_install_components.dir
+/home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles/install.dir
+/home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles/install/local.dir
+/home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles/install/strip.dir
