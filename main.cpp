@@ -1,8 +1,11 @@
+#include <algorithm>
+#include <cctype>
 #include <cstdlib>
 #include <cstring>
 #include <fstream>
 #include <iostream>
 #include <string>
+#include <string.h>
 
 // Consts
 const std::string PATH_FILE_NAME = "path.txt";
@@ -13,9 +16,10 @@ void ShowHelp();
 void SavePath(const std::string&& pathName);
 const std::string GetPath();
 int ExitWithError(const std::string&& errMsg);
-void SaveToFile(const std::string&& arg, const std::string&& fileName);
+void SaveToFile(std::string&& arg, const std::string&& fileName);
 void PrintFile(const std::string&& fileName);
-void SearchAndPrint(const std::string&& entry, const std::string&& fileName);
+void SearchAndPrint(std::string&& entry, const std::string&& fileName);
+bool IsFileEmpty(std::fstream& file);
 // ------------------------
 
 // Main function
@@ -122,14 +126,14 @@ void ShowHelp()
 // -------------------------------------------
 int ExitWithError(const std::string&& errMsg)
 {
-  std::cout << " Error: " << errMsg << std::endl;
+  std::cout << " ERROR: " << errMsg << std::endl;
   return EXIT_FAILURE;
 }
 // -------------------------------------------
 
 // *** Save To File ***
 // ---------------------------------
-void SaveToFile(const std::string&& arg, const std::string&& fileName)
+void SaveToFile(std::string&& arg, const std::string&& fileName)
 {
   // Opening--if it exists--the file in append mode to add more data to the file
   // If the file does not exist, it will created it
@@ -143,8 +147,11 @@ void SaveToFile(const std::string&& arg, const std::string&& fileName)
     return;
   }
 
+  // Replace all of the "_" in the string with " "
+  std::replace(arg.begin(), arg.end(), '_', ' ');
+
   // Write, with format, to the file with the given argument
-  file << "\n" << arg << "\n";
+  file << std::endl << arg << "\n";
 
   // Print a celebratory message
   std::cout << "\n" << arg << " was added to " << "\'" << fileName << "\'!" << std::endl; 
@@ -168,6 +175,12 @@ void PrintFile(const std::string&& fileName)
   {
     std::cout << fileName << " failed to load" << std::endl;
     std::cout << "Please make sure you entered the correct path" << std::endl;
+    return;
+  }
+
+  if(IsFileEmpty(file))
+  {
+    std::cout << "ERROR: " << fileName << " is currently empty" << std::endl;
     return;
   }
 
@@ -224,7 +237,7 @@ const std::string GetPath()
 
 // *** Search And Print ***
 // ---------------------------------
-void SearchAndPrint(const std::string&& entry, const std::string&& fileName)
+void SearchAndPrint(std::string&& entry, const std::string&& fileName)
 {
   std::fstream file(GetPath() + fileName, std::ios::in);
   std::string line;
@@ -232,23 +245,50 @@ void SearchAndPrint(const std::string&& entry, const std::string&& fileName)
 
   if(!file.is_open())
   {
-    std::cout << fileName << " failed to load" << std::endl;
+    std::cout << "ERROR: " << fileName << " failed to load" << std::endl;
     std::cout << "Please make sure you entered the correct path" << std::endl;
     return;
   }
+
+  if(IsFileEmpty(file))
+  {
+    std::cout << "ERROR: " << fileName << " is currently empty" << std::endl;
+    return;
+  }
+
+  // Replace all of the "_" in the string with " "
+  std::replace(entry.begin(), entry.end(), '_', ' ');
   
   while(std::getline(file, line))
   {
-    if(line == entry)
+    // Creating copies to not change the actual strings
+    std::string str1 = line;
+    std::string str2 = entry;
+    
+    // Lower casing all of the characters in the string for accurate search
+    std::transform(str1.begin(), str1.end(), str1.begin(), ::tolower);  
+    std::transform(str2.begin(), str2.end(), str2.begin(), ::tolower);  
+
+    if(str1 == str2)
     {
-      std::cout << "\n" << line << std::endl;
+      std::cout << "\n" << line << " was found in file \'" << fileName << "\'" << std::endl;
       isFound = true;
     }
   }
 
   if(!isFound)
-    std::cout << "\nCould not find " << entry << " in file " << fileName << std::endl;
+    std::cout << "\nERROR: Could not find " << entry << " in file " << fileName << std::endl;
 
   file.close();
+}
+// ---------------------------------
+
+// *** Is File Empty ***
+// ---------------------------------
+bool IsFileEmpty(std::fstream& file)
+{
+  // Goes through the file's content character by character and checks if that character is the 
+  // end of file trait. Return true or false depending on the outcome.
+  return file.peek() == std::fstream::traits_type::eof();
 }
 // ---------------------------------
