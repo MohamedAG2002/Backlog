@@ -8,13 +8,11 @@
 #include <string.h>
 
 // Consts
-const std::string PATH_FILE_NAME = "path.txt";
+const std::string PATH = "/home/mohamed/Documents/Notes/FilmsAnimesGames/";
 
 // Function declaration
 // ------------------------
 void ShowHelp();
-void SavePath(const std::string&& pathName);
-const std::string GetPath();
 int ExitWithError(const std::string&& errMsg);
 void SaveToFile(std::string&& arg, const std::string&& fileName);
 void PrintFile(const std::string&& fileName);
@@ -33,14 +31,6 @@ int main(int argc, char** argv)
   // List of arguments
   if(strcmp(argv[1], "-H") == 0 || strcmp(argv[1], "--help") == 0)
     ShowHelp();
-  else if(strcmp(argv[1], "-P") == 0 || strcmp(argv[1], "--path") == 0)
-  {
-    // No path given
-    if(argc != 3)
-      return ExitWithError("No valid path given!");
-    
-    SavePath(argv[2]);
-  }
   else if(strcmp(argv[1], "-G") == 0 || strcmp(argv[1], "--game") == 0)
   {
     // No argument given 
@@ -110,7 +100,6 @@ void ShowHelp()
   std::cout << " NOTE: Make sure to add a \'/\' (or \'\\\' if on windows) to the end of your path\n\n";
 
   std::cout << " --help    -H                         = Prints this help screen\n";
-  std::cout << " --path    -P [Absolute path]         = Specify the path to all of the .txt files\n";
   std::cout << " --game    -G [Game]                  = Add a game to \"games.txt\"\n";
   std::cout << " --film    -F [Films]                 = Add a movie to \"films.txt\"\n";
   std::cout << " --show    -S [Show]                  = Add a show to \"shows.txt\"\n";
@@ -118,7 +107,7 @@ void ShowHelp()
   std::cout << " --list    -L [File name]             = List all of the contents of a specified file\n";
   std::cout << " --search  -R [Entry] [File name]     = Search for an entry in the specified file\n";
 
-  std::cout << "\n Current path                         = " << GetPath() << "\n\n";
+  std::cout << "\n Current path                         = " << PATH << "\n\n";
 }
 // ---------------------------------------------------------------------------
 
@@ -137,7 +126,7 @@ void SaveToFile(std::string&& arg, const std::string&& fileName)
 {
   // Opening--if it exists--the file in append mode to add more data to the file
   // If the file does not exist, it will created it
-  std::fstream file(GetPath() + fileName, std::ios::app);
+  std::fstream file(PATH + fileName, std::ios::app);
 
   // Err if the file does not open
   if(!file.is_open())
@@ -166,7 +155,7 @@ void SaveToFile(std::string&& arg, const std::string&& fileName)
 void PrintFile(const std::string&& fileName)
 {
   // Open the file in read mode
-  std::fstream file(GetPath() + fileName, std::ios::in);
+  std::fstream file(PATH + fileName, std::ios::in);
   
   // The contents of the file will be outputed to this string
   std::string line;
@@ -195,51 +184,11 @@ void PrintFile(const std::string&& fileName)
 }
 // ---------------------------------
 
-// *** Save Path *** 
-// ---------------------------------
-void SavePath(const std::string&& pathName)
-{
-  std::fstream file(PATH_FILE_NAME, std::ios::out);
-
-  if(!file.is_open())
-  {
-    std::cerr << "Failed to open \'path.txt\' file" << std::endl;
-    return;
-  }
-
-  file << pathName;
-
-  file.close();
-}
-// ---------------------------------
-
-// *** Get Path *** 
-// ---------------------------------
-const std::string GetPath()
-{
-  std::fstream file(PATH_FILE_NAME, std::ios::in);
-  std::string path;
-
-  if(!file.is_open())
-    std::cerr << "Failed to open \'path.txt\' file" << std::endl;
-
-  while(!file.eof())
-  {
-    // Reading the contents of the file into the variable
-    file >> path;
-  }
-
-  file.close();
-
-  return path; 
-}
-// ---------------------------------
-
 // *** Search And Print ***
 // ---------------------------------
 void SearchAndPrint(std::string&& entry, const std::string&& fileName)
 {
-  std::fstream file(GetPath() + fileName, std::ios::in);
+  std::fstream file(PATH + fileName, std::ios::in);
   std::string line;
   bool isFound = false;
 

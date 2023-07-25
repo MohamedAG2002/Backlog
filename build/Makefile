@@ -57,10 +57,10 @@ RM = /home/mohamed/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E r
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mohamed/Dev/C++/ConsoleProjects/Backlog
+CMAKE_SOURCE_DIR = /home/mohamed/Dev/C++/CLI/Backlog
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mohamed/Dev/C++/ConsoleProjects/Backlog/build
+CMAKE_BINARY_DIR = /home/mohamed/Dev/C++/CLI/Backlog/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -132,9 +132,9 @@ install/strip/fast: preinstall/fast
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles /home/mohamed/Dev/C++/ConsoleProjects/Backlog/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mohamed/Dev/C++/CLI/Backlog/build/CMakeFiles /home/mohamed/Dev/C++/CLI/Backlog/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/mohamed/Dev/C++/ConsoleProjects/Backlog/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/mohamed/Dev/C++/CLI/Backlog/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

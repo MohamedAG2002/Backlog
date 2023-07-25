@@ -7,8 +7,5 @@ project(backlog)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-# Ensure the path.txt file is in the final binary build
-file(COPY ${CMAKE_CURRENT_BINARY_DIR}/path.txt DESTINATION bin)
-
 # Will install the project to be able to be used as a CLI command
 install(TARGETS ${PROJECT_NAME} DESTINATION bin)
