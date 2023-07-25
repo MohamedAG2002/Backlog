@@ -35,7 +35,7 @@ Installing backlog on Linux or Mac is easy enough. All you have to do is run the
 sudo make install
 ~~~
 
-This will install Backlog for you on your Linux or Mac machine. Now you're ready to use Backlog. Please refer to the *Notes* section to know some things before using Backlog. 
+This will install Backlog for you on your Linux or Mac machine. Now you're ready to use Backlog. Please take a look at the *Notes* section to know some things before using Backlog. 
 
 ## Windows
 Installing Backlog on Windows is not as straightforward as on Linux or Mac. But it should be easy enough as well. There are no commands to run this time as with Windows you'll have to set the environment variable to the executable you just built.
@@ -49,4 +49,4 @@ A couple of notes to keep in mind if you're using Backlog for the first time.
 
 First of all, always set a path *before* using anything in Backlog. If you don't set a path, the files that will be written to will either be created in the project's build folder or not at all. So, if this is your first time using Backlog, make sure to set a path before doing *anything* with Backlog. You can check your current path by showing the "help" menu.
 
-Second of all, when you're using Backlog and you're adding entries to the files, please make sure to write "_" in place of any space in yor entry. So, for example, if you want to add something like Elden Ring to your games list, you should type `backlog --game Elden_Ring`. See how I replaced the space between "Elden" and "Ring" with an "_"? You have to do that with every entry that has a space in between the words. There can be a workaround, but I don't know of it yet. So, please, make sure to replace any space with an "_".
+Second, when you're using Backlog and adding entries to the files, please make sure to write "\_" instead of any space in your entry. So, for example, if you want to add something like Elden Ring to your games list, you should type `backlog --game Elden_Ring`. See how I replaced the space between "Elden" and "Ring" with an "\_"? You have to do that with every entry that has a space in between the words. There can be a workaround, but I don't know of it yet. So, please, replace any space with an "\_".
