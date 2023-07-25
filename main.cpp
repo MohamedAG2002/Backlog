@@ -222,7 +222,7 @@ const std::string GetPath()
 
   if(!file.is_open())
     std::cerr << "Failed to open \'path.txt\' file" << std::endl;
-    
+
   while(!file.eof())
   {
     // Reading the contents of the file into the variable
@@ -259,19 +259,23 @@ void SearchAndPrint(std::string&& entry, const std::string&& fileName)
   // Replace all of the "_" in the string with " "
   std::replace(entry.begin(), entry.end(), '_', ' ');
   
-  while(std::getline(file, line))
+  while(std::getline(file, line) && !isFound)
   {
     // Creating copies to not change the actual strings
     std::string str1 = line;
     std::string str2 = entry;
-    
+   
+    // Remove all whitespaces of the strings
+    str1.erase(std::remove_if(str1.begin(), str1.end(), ::isspace), str1.end());
+    str2.erase(std::remove_if(str2.begin(), str2.end(), ::isspace), str2.end());
+
     // Lower casing all of the characters in the string for accurate search
     std::transform(str1.begin(), str1.end(), str1.begin(), ::tolower);  
     std::transform(str2.begin(), str2.end(), str2.begin(), ::tolower);  
 
     if(str1 == str2)
     {
-      std::cout << "\n" << line << " was found in file \'" << fileName << "\'" << std::endl;
+      std::cout << "\n" << entry << " was found in file \'" << fileName << "\'" << std::endl;
       isFound = true;
     }
   }

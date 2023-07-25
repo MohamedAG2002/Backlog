@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/backlog.dir/main.cpp.o -o backlog 
+/usr/bin/c++ -O3 -DNDEBUG CMakeFiles/backlog.dir/main.cpp.o -o backlog 
