@@ -58,6 +58,8 @@ You might need to close your terminal and open it again for the changes to take 
 # Notes
 A couple of notes to keep in mind if you're using Backlog for the first time.
 
+## Path
 First of all, always set a path *before* using anything in Backlog. If you don't set a path, the files that will be written to will either be created in the project's build folder or not at all. So, if this is your first time using Backlog, make sure to set a path before doing *anything* with Backlog. You can check your current path by showing the "help" menu. Setting a path is currently very inconvenient. To change the path, you have to go to the "main.cpp" file, open it with a text editor, search for the "PATH" variable at the very top of the file (after the includes), and change it to your desired path. I know this is horrible but I can't find another way. Sorry.
 
+## Writing convention
 Second, when you're using Backlog and adding entries to the files, please make sure to write "\_\" instead of any space in your entry. So, for example, if you want to add something like Elden Ring to your games list, you should type `backlog --game Elden_Ring`. See how I replaced the space between "Elden" and "Ring" with an "\_\"? You have to do that with every entry that has a space in between the words. There can be a workaround, but I don't know of it yet. So, please, replace any space with an "\_".
