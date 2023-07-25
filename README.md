@@ -7,6 +7,17 @@ With Backlog, you can add any movie, tv show, game, or anime to a list to keep t
 
 It is upon my lawyer's advice to tell you that the above statement is not valid. Backlog has no guarantee to free you from the ever-growing feeling of cringe.  
 
+# Use
+Backlog is exclusively used in the terminal. It is a CLI tool after all. However, the good news is that it's not hard to use Backlog at all. All you have to do is--once you install it, of course--is write, on your terminal, `backlog --help`. Everything you need to know about backlog is in there. The commands you can use and how to use them exactly. Yet, the help menu doesn't tell you everything. 
+
+The way Backlog works is that it takes the path you give it and create 4 empty text files: games.txt, films.txt, shows.txt, and animes.txt. You can of course edit these files as you wish. Backlog will basically write and read from these files everytime you use the tool. You cannot rename these files or move each one to another folder seperately. These files have to be in the same directory at all times. If you deleted one or more of these files, then Backlog will just create them again. When you'd want to list the contents of any of the files or search a specific entry in any of them, you'd have to use the names provided by Backlog. 
+
+Say, for example, you want to search for the entry "Game of Thrones" in the shows file, you'd write on your terminal: `backlog --search Game_of_Thrones shows.txt`. As goes with any other file. You also not only have to specify the name of the file, you also have to specify its extension, which is always a ".txt". If you're surprised by the "\_\" and why they're there, please refer to the *Notes* section of this README. 
+
+Make sure to remember the names of these files as they are very important, as you can see. And also make sure to keep the files together in the same directory at all times.
+
+Enjoy.
+
 # Installation
 This project uses cmake for building and configuring. Please make sure to have cmake installed on your system. First of all, as usual, you have to clone the repo somewhere on your system, build the project, and then compile it.
 
