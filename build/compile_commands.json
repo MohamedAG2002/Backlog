@@ -1,8 +1,0 @@
-[
-{
-  "directory": "/home/mohamed/Dev/C++/CLI/Backlog/build",
-  "command": "/usr/bin/c++    -o CMakeFiles/backlog.dir/main.cpp.o -c /home/mohamed/Dev/C++/CLI/Backlog/main.cpp",
-  "file": "/home/mohamed/Dev/C++/CLI/Backlog/main.cpp",
-  "output": "CMakeFiles/backlog.dir/main.cpp.o"
-}
-]

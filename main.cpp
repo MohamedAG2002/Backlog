@@ -8,7 +8,7 @@
 #include <string.h>
 
 // Consts
-const std::string PATH = "/home/mohamed/Documents/Notes/FilmsAnimesGames/";
+const std::string PATH = "";
 
 // Function declaration
 // ------------------------
