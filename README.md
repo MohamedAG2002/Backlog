@@ -12,7 +12,7 @@ Backlog is exclusively used in the terminal. It is a CLI tool after all. However
 
 The way Backlog works is that it takes the path you give it and create 4 empty text files: games.txt, films.txt, shows.txt, and animes.txt. You can of course edit these files as you wish. Backlog will basically write and read from these files everytime you use the tool. You cannot rename these files or move each one to another folder seperately. These files have to be in the same directory at all times. If you deleted one or more of these files, then Backlog will just create them again. When you'd want to list the contents of any of the files or search a specific entry in any of them, you'd have to use the names provided by Backlog. 
 
-Say, for example, you want to search for the entry "Game of Thrones" in the shows file, you'd write on your terminal: `backlog --search Game_of_Thrones shows.txt`. As goes with any other file. You also not only have to specify the name of the file, you also have to specify its extension, which is always a ".txt". If you're surprised by the "\_\" and why they're there, please refer to the *Notes* section of this README. 
+Say, for example, you want to search for the entry "Game of Thrones" in the shows file, you'd write on your terminal: `backlog --search "Gamea of Thrones" shows.txt`. As goes with any other file. You also not only have to specify the name of the file, you also have to specify its extension, which is always a ".txt". As you can see, the log entry _need_ to be surrounded with "" to be read as one word. 
 
 Make sure to remember the names of these files as they are very important, as you can see. And also make sure to keep the files together in the same directory at all times.
 
@@ -60,6 +60,3 @@ A couple of notes to keep in mind if you're using Backlog for the first time.
 
 ## Path
 First of all, always set a path *before* using anything in Backlog. If you don't set a path, the files that will be written to will either be created in the project's build folder or not at all. So, if this is your first time using Backlog, make sure to set a path before doing *anything* with Backlog. You can check your current path by showing the "help" menu. Setting a path is currently very inconvenient. To change the path, you have to go to the "main.cpp" file, open it with a text editor, search for the "PATH" variable at the very top of the file (after the includes), and change it to your desired path. I know this is horrible but I can't find another way. Sorry.
-
-## Writing convention
-Second, when you're using Backlog and adding entries to the files, please make sure to write "\_\" instead of any space in your entry. So, for example, if you want to add something like Elden Ring to your games list, you should type `backlog --game Elden_Ring`. See how I replaced the space between "Elden" and "Ring" with an "\_\"? You have to do that with every entry that has a space in between the words. There can be a workaround, but I don't know of it yet. So, please, replace any space with an "\_".

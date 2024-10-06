@@ -8,7 +8,7 @@
 #include <string.h>
 
 // Consts
-const std::string PATH = "";
+const std::string PATH = "/home/mohamed/Documents/Notes/FilmsAnimesGames/";
 
 // Function declaration
 // ------------------------
@@ -96,7 +96,7 @@ void ShowHelp()
   std::cout << "\n\t\t======================\n";
   std::cout << "  \t\t  Welcome to Backlog\n";
   std::cout << "\t\t======================\n\n";
-  std::cout << " NOTE: Please make sure to put \'_\' in place of any space\n";
+  std::cout << " NOTE: Please make sure to put the log entry in \"\"\n";
   std::cout << " NOTE: Make sure to add a \'/\' (or \'\\\' if on windows) to the end of your path\n\n";
 
   std::cout << " --help    -H                         = Prints this help screen\n";
